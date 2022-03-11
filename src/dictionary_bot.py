@@ -1,5 +1,7 @@
 from sys import prefix
 import discord
+import os
+import dotenv
 
 
 class dictionary_bot(discord.Client):
@@ -21,3 +23,10 @@ class dictionary_bot(discord.Client):
 
         if message.content.startswith(prefix + "running"):
             await message.channel.send(f"Hello, {message.author}")
+
+
+dotenv.load_dotenv()
+token = os.environ["bot_token"]
+
+bot = dictionary_bot()
+bot.run(token)
