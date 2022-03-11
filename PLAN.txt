@@ -1,6 +1,8 @@
 This is the plan for the project
 
+0.Make the discord bot
 1.Make a discord bot that can respond to messages
 2.Make discord bot separate commands from words 
 3.Get definition of word using https://www.wordsapi.com/
 4.Figure out a way to host the bot
+5.Make a licence for the bot
