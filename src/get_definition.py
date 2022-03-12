@@ -2,6 +2,12 @@ import requests
 
 
 def get_def(word, index):
+    """
+    Returns the definitions of a given word using https://api.dictionaryapi.dev
+
+    The index parameter is used to choose which definition to return
+    """
+
     responce = requests.get(f"https://api.dictionaryapi.dev/api/v2/entries/en/{word}")
     print(f"https://api.dictionaryapi.dev/api/v2/entries/en/{word}")
 
@@ -15,6 +21,10 @@ def get_def(word, index):
 
 
 def get_def_num(word):
+    """
+    Returns the number of definitions a word has
+    """
+    
     responce = requests.get(f"https://api.dictionaryapi.dev/api/v2/entries/en/{word}")
     print(f"https://api.dictionaryapi.dev/api/v2/entries/en/{word}")
 

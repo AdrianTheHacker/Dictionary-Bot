@@ -9,14 +9,24 @@ class dictionary_bot(discord.Client):
     prefix = "!"
 
     def get_word(self, message):
+        """
+        Takes in the given command and returns the word that follows it
+        """
+
         wordList = message.content.split()
 
         return wordList[1]
 
     async def on_ready(self):
+        """
+        Notifies the console when the bot is on
+        """
         print(f"logged in as {self.user}")
 
     async def on_message(self, message):
+        """
+        Responds to commands given by users
+        """
 
         # Prevents the bot from responding to itself
         if message.author == self.user:
@@ -27,7 +37,7 @@ class dictionary_bot(discord.Client):
         ## Debug Commands ##
         ####################
 
-        if message.content.startswith("!running"):
+        if message.content.startswith("!running"): # Checks if bot is online
             await message.channel.send(f"Hello, {message.author}")
             print(f"Hello, {message.author}")
 
@@ -38,7 +48,7 @@ class dictionary_bot(discord.Client):
         ## Main Commands ##
         ###################
 
-        if message.content.startswith("!define"):
+        if message.content.startswith("!define"): # Finds the defintions of a word
             for definition in range(get_def_num(self.get_word(message))):
                 await message.channel.send(f"{definition + 1}. {get_def(self.get_word(message), definition)}")
 
